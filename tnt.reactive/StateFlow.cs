@@ -2,7 +2,7 @@
 
 public class StateFlow<T> : Flow<T>
 {
-  protected T value;
+  public T value { get; protected set; }
 
   public StateFlow(T initialValue) : base()
   {
