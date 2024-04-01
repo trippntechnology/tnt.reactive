@@ -2,10 +2,11 @@
 
 public class StateFlow<T> : Flow<T>
 {
-	public T value { get => base.value; protected set => base.value = value; }
+  protected T value;
 
-	public StateFlow(T value)
-	{
-		base.value = value;
-	}
+  public StateFlow(T initialValue) : base()
+  {
+    value = initialValue;
+    collect((value) => this.value = value);
+  }
 }
