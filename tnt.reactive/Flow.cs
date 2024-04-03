@@ -9,12 +9,12 @@ public class Flow<T>
     emitters.ForEach(emitter => emitter(value));
   }
 
-  public void collect(Action<T> onEmit)
+  public virtual void collect(Action<T> onEmit)
   {
     this.emitters.Add(onEmit);
   }
 
-  public Flow<R> map<R>(Func<T, R> func)
+  public virtual Flow<R> map<R>(Func<T, R> func)
   {
     Flow<R> flow = new Flow<R>();
     collect((value) =>
