@@ -1,26 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Version>1.0.0</Version>
 		<Authors>Tripp'n Technology, LLC.</Authors>
-		<Copyright>Copyright 2022 $(Authors)</Copyright>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<Configurations>Debug;Release;Debug_Nuget_Local;Debug_Nuget_Local</Configurations>
-		<Description>TNT Reactive Framework</Description>
 		<Company>$(Authors)</Company>
-		<IncludeSymbols>True</IncludeSymbols>
+		<Configurations>Debug;Release;Debug_Nuget_Local;Debug_Nuget_Local</Configurations>
+		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
+		<Copyright>Copyright 2022 $(Authors)</Copyright>
+		<DebugType>embedded</DebugType>
+		<Description>TNT Reactive Framework</Description>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <ImplicitUsings>enable</ImplicitUsings>
+		<IncludeSymbols>False</IncludeSymbols>
+    <Nullable>enable</Nullable>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
-		<DocumentationFile></DocumentationFile>
+    <TargetFramework>net8.0</TargetFramework>
 		<Title>TNT Reactive</Title>
+		<Version>1.0.0</Version>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 	<Target Name="DeplyNugetLocal" AfterTargets="Pack" Condition="$(Configuration) == 'Debug_Nuget_Local'">
 		<Exec Command="copy $(ProjectDir)bin\$(Configuration)\$(ProjectName).$(PackageVersion).nupkg D:\NugetRepo" />
-		<Exec Command="copy $(ProjectDir)bin\$(Configuration)\$(ProjectName).$(PackageVersion).symbols.nupkg D:\NugetRepo" />
 	</Target>
 </Project>
