@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tnt.reactive", "tnt.reactive\tnt.reactive.csproj", "{98BF7E83-611B-45C4-834D-3D0C27E77057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TNT.Reactive", "tnt.reactive\TNT.Reactive.csproj", "{98BF7E83-611B-45C4-834D-3D0C27E77057}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tests", "tests\tests.csproj", "{EB23DFA7-8197-4A91-B084-AF36C6B025E0}"
 EndProject

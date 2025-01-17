@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\tnt.reactive\tnt.reactive.csproj" />
+    <ProjectReference Include="..\tnt.reactive\TNT.Reactive.csproj" />
   </ItemGroup>
 
   <ItemGroup>
