@@ -9,7 +9,7 @@ public class Flow<T>
   /// <see cref="List{T}"/> of <see cref="Action"/> that are called when the <see cref="Flow{T}"/>
   /// emits a change
   /// </summary>
-  protected List<Action<T>> emitters = new List<Action<T>>();
+  protected List<Action<T?>> emitters = new List<Action<T?>>();
 
   /// <summary>
   /// Called to emit a new value
@@ -24,7 +24,7 @@ public class Flow<T>
   /// Called to observe values being emitted by the <see cref="Flow{T}"/>
   /// </summary>
   /// <param name="onEmit">Lambda that is called by the <see cref="Flow{T}"/></param>
-  public virtual void collect(Action<T> onEmit)
+  public virtual void collect(Action<T?> onEmit)
   {
     this.emitters.Add(onEmit);
   }
@@ -34,9 +34,9 @@ public class Flow<T>
   /// </summary>
   /// <param name="func"><see cref="Func{TResult}"/> that is returns a new value</param>
   /// <returns>A new <see cref="Flow{T}"/> based on the value of this <see cref="Flow{T}"/></returns>
-  public virtual Flow<R> map<R>(Func<T, R> func)
+  public virtual Flow<R?> map<R>(Func<T?, R?> func)
   {
-    Flow<R> flow = new Flow<R>();
+    Flow<R?> flow = new Flow<R?>();
     collect((value) =>
     {
       R? result = func(value);

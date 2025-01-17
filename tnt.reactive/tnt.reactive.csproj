@@ -5,7 +5,7 @@
 		<Company>$(Authors)</Company>
 		<Configurations>Debug;Release;Debug_Nuget_Local;Debug_Nuget_Local</Configurations>
 		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
-		<Copyright>Copyright 2022 $(Authors)</Copyright>
+		<Copyright>Copyright 2025 $(Authors)</Copyright>
 		<DebugType>embedded</DebugType>
 		<Description>TNT Reactive Framework</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -15,7 +15,7 @@
     <Nullable>enable</Nullable>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
 		<Title>TNT Reactive</Title>
 		<Version>1.0.0</Version>
 	</PropertyGroup>

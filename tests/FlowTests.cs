@@ -29,7 +29,7 @@ public class FlowTests
     Flow<string?> flow = new Flow<string?>();
     List<string>? result = null;
 
-    Flow<List<string>> mapResultFlow = flow.map(value =>
+    Flow<List<string>?> mapResultFlow = flow.map(value =>
     {
       return value?.Split(',').ToList() ?? new List<string>();
     });
@@ -42,8 +42,7 @@ public class FlowTests
     flow.emit("one,two,three");
 
     Assert.That(result, Is.Not.Null);
-    CollectionAssert.AreEqual(new List<string>() { "one", "two", "three" }, result);
-
+    Assert.That(result, Is.EqualTo(new List<string>() { "one", "two", "three" }));
   }
 
   [Test]
@@ -53,7 +52,7 @@ public class FlowTests
     var stateFlowValues = new List<string?>();
     var flowValues = new List<string?>();
 
-    Flow<string> flow = stateFlow.map(value =>
+    Flow<string?> flow = stateFlow.map(value =>
     {
       stateFlowValues.Add(value);
       return $"-{value}-";
@@ -68,9 +67,8 @@ public class FlowTests
 
     stateFlow.emit("new value");
     Assert.That(stateFlow.value, Is.EqualTo("new value"));
-
-    CollectionAssert.AreEqual(new List<string>() { "initial value", "new value" }, stateFlowValues);
-    CollectionAssert.AreEqual(new List<string>() { "-new value-" }, flowValues);
+    Assert.That(stateFlowValues, Is.EqualTo(new List<string>() { "initial value", "new value" }));
+    Assert.That(flowValues, Is.EqualTo(new List<string>() { "-new value-" }));
   }
 
   [Test]
@@ -78,9 +76,9 @@ public class FlowTests
   {
     MutableStateFlow<string?> mutableStateFlow = new MutableStateFlow<string?>(null);
     var msfValues = new List<string?>();
-    var flowValues = new List<string>();
+    var flowValues = new List<string?>();
 
-    Flow<string> flow = mutableStateFlow.map(value =>
+    Flow<string?> flow = mutableStateFlow.map(value =>
     {
       msfValues.Add(value);
       return value ?? "";
@@ -98,16 +96,16 @@ public class FlowTests
     mutableStateFlow.value = "three";
     Assert.That(mutableStateFlow.value, Is.EqualTo("three"));
 
-    CollectionAssert.AreEqual(new List<string?>() { null, "one", "two", "three" }, msfValues);
-    CollectionAssert.AreEqual(new List<string>() { "one", "two", "three" }, flowValues);
+    Assert.That(msfValues, Is.EqualTo(new List<string?>() { null, "one", "two", "three" }));
+    Assert.That(flowValues, Is.EqualTo(new List<string>() { "one", "two", "three" }));
   }
 
   [Test]
-  public void asStateFlowTest()
+  public void AsStateFlowTest()
   {
     Flow<string> flow = new Flow<string>();
 
-    StateFlow<string> stateFlow = flow.map(value =>
+    StateFlow<string?> stateFlow = flow.map(value =>
     {
       return value;
     }).asStateFlow();
@@ -125,7 +123,7 @@ public class FlowTests
   {
     Flow<string> flow1 = new Flow<string>();
     Flow<string> flow2 = new Flow<string>();
-    var flowValues = new List<string>();
+    var flowValues = new List<string?>();
 
     var flow3 = flow1.combine(flow2, (f1, f2) =>
     {
@@ -138,6 +136,6 @@ public class FlowTests
     flow2.emit("second");
     flow1.emit("third");
 
-    CollectionAssert.AreEqual(new List<string>() { "first ", "first second", "third second" }, flowValues);
+    Assert.That(flowValues, Is.EqualTo(new List<string>() { "first ", "first second", "third second" }));
   }
 }
