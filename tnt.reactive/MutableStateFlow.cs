@@ -1,4 +1,4 @@
-﻿namespace tnt.reactive;
+﻿namespace TNT.Reactive;
 
 /// <summary>
 /// A <see cref="StateFlow{T}"/> that is mutable
@@ -8,7 +8,7 @@ public class MutableStateFlow<T> : StateFlow<T>
   /// <summary>
   /// Value of the <see cref="MutableStateFlow{T}"/>
   /// </summary>
-  public new T value { get => base.value; set => emit(value); }
+  public new T? value { get => base.value; set => emit(value); }
 
   /// <summary>
   /// Initialization constructor

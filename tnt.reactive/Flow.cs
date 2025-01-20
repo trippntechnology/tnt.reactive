@@ -1,4 +1,4 @@
-﻿namespace tnt.reactive;
+﻿namespace TNT.Reactive;
 
 /// <summary>
 /// Object that can be observed for changes that are emitted
@@ -15,7 +15,7 @@ public class Flow<T>
   /// Called to emit a new value
   /// </summary>
   /// <param name="value">Value to emit</param>
-  public void emit(T value)
+  public void emit(T? value)
   {
     emitters.ForEach(emitter => emitter(value));
   }

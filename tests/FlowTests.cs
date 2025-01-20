@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using tnt.reactive;
+using TNT.Reactive;
 
 namespace tests;
 

@@ -17,7 +17,7 @@
 		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
     <TargetFramework>net9.0</TargetFramework>
 		<Title>TNT Reactive</Title>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

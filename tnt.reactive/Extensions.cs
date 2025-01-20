@@ -1,4 +1,4 @@
-﻿namespace tnt.reactive;
+﻿namespace TNT.Reactive;
 
 /// <summary>
 /// Flow extensions 
