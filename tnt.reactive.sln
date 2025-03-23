@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TNT.Reactive", "tnt.reactiv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{BFAD0323-60A7-8C46-1138-304A71A1013F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackingFieldsSample", "BackingFieldsSample\BackingFieldsSample.csproj", "{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Nuget_Local|Any CPU = Debug_Nuget_Local|Any CPU
@@ -26,6 +28,12 @@ Global
 		{BFAD0323-60A7-8C46-1138-304A71A1013F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFAD0323-60A7-8C46-1138-304A71A1013F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFAD0323-60A7-8C46-1138-304A71A1013F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Debug_Nuget_Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Debug_Nuget_Local|Any CPU.Build.0 = Debug|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD8BCA0-33A6-410D-AEEC-04E9C878EF05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

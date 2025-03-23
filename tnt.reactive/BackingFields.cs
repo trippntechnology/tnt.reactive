@@ -3,7 +3,9 @@
 namespace TNT.Reactive;
 
 /// <summary>
-/// Encapsolates a <see cref="Dictionary{TKey, TValue}"/> representing property name and values
+/// Encapsolates a <see cref="Dictionary{TKey, TValue}"/> representing property name and values. When
+/// a property name value changes <see cref="OnFieldChanged"/> is called with the corresponding property name
+/// and value.
 /// </summary>
 public class BackingFields
 {
@@ -15,7 +17,7 @@ public class BackingFields
   /// <summary>
   /// Represents property names and values
   /// </summary>
-  protected Dictionary<string, object> _BackingFields = new Dictionary<string, object>();
+  protected Dictionary<string, object?> _BackingFields = new();
 
   /// <summary>
   /// Default constructor
@@ -35,30 +37,22 @@ public class BackingFields
   /// The CallerMemberName attribute is used to automatically set the <paramref name="propertyName"/> from 
   /// the calling method.
   /// </summary>
-  public void Set<T>(T value, [CallerMemberName] string propertyName = "")
+  public void Set<T>(T? value, [CallerMemberName] string propertyName = "")
   {
-    var setValue = false;
+    var valueChanged = false;
 
     if (_BackingFields.TryGetValue(propertyName, out object? currentValue))
     {
-      setValue = !currentValue.Equals(value);
+      valueChanged = currentValue?.Equals(value) != true;
     }
     else
     {
-      setValue = true;
+      valueChanged = true;
     }
 
-    if (setValue)
+    if (valueChanged)
     {
-      if (value == null)
-      {
-        _BackingFields.Remove(propertyName);
-      }
-      else
-      {
-        _BackingFields[propertyName] = value;
-      }
-
+      _BackingFields[propertyName] = value;
       OnFieldChanged(propertyName, value);
     }
   }
@@ -70,11 +64,6 @@ public class BackingFields
   /// </summary>
   public T? Get<T>(T? defaultValue = default, [CallerMemberName] string propertyName = "")
   {
-    var value = defaultValue;
-    if (_BackingFields.ContainsKey(propertyName))
-    {
-      value = (T)_BackingFields[propertyName];
-    }
-    return value;
+    return _BackingFields.ContainsKey(propertyName) ? (T?)_BackingFields[propertyName] : defaultValue;
   }
 }
