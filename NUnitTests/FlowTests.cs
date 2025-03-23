@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using TNT.Reactive;
 
-namespace tests;
+namespace NUnitTests;
 
 [ExcludeFromCodeCoverage]
 public class FlowTests
