@@ -8,24 +8,11 @@ internal class ClassWithBackingFields
   private BackingFields _BackingFields = new BackingFields();
 
   [Browsable(false)]
-  public Action<string, object?> OnFieldChanged
-  {
-    get => _BackingFields.OnFieldChanged;
-    set => _BackingFields.OnFieldChanged = value;
-  }
+  public Action<string, object?> OnFieldChanged { get => _BackingFields.OnFieldChanged; set => _BackingFields.OnFieldChanged = value; }
 
-  public string? NullStringProperty
-  {
-    get => _BackingFields.Get<string?>(null);
-    set => _BackingFields.Set(value);
-  }
+  public string? NullStringProperty { get => _BackingFields.Get<string?>(null); set => _BackingFields.Set(value); }
 
-  public string? StringProperty
-  {
-    get => _BackingFields.Get("Initial Value");
-    set => _BackingFields.Set(value);
-  }
-
+  public string? StringProperty { get => _BackingFields.Get("Initial Value"); set => _BackingFields.Set(value); }
 
   public int IntProperty
   {
@@ -36,4 +23,6 @@ internal class ClassWithBackingFields
       _BackingFields.Set(value);
     }
   }
+
+  public Color BackgroundColor { get => _BackingFields.Get(Color.Blue); set => _BackingFields.Set(value); }
 }

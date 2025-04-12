@@ -10,7 +10,7 @@ public partial class Form1 : Form
     classWithBackingFields.OnFieldChanged = (propertyName, value) =>
     {
       textBox1.AppendText($"Property {propertyName} changed to {value}{Environment.NewLine}");
-      propertyGrid1.Refresh();
+      textBox1.BackColor = classWithBackingFields.BackgroundColor;
     };
 
     propertyGrid1.SelectedObject = classWithBackingFields;
