@@ -1,28 +1,22 @@
-﻿using System.ComponentModel;
-using TNT.Reactive;
+﻿using TNT.Reactive;
 
 namespace BackingFieldsSample;
 
-internal class ClassWithBackingFields
+internal class ClassWithBackingFields : Observable
 {
-  private BackingFields _BackingFields = new BackingFields();
+  public string? NullStringProperty { get => Get<string?>(null); set => Set(value); }
 
-  [Browsable(false)]
-  public event Action<string, object?> OnFieldChanged = (_, __) => { };
-
-  public string? NullStringProperty { get => _BackingFields.Get<string?>(null); set => _BackingFields.Set(value); }
-
-  public string? StringProperty { get => _BackingFields.Get("Initial Value"); set => _BackingFields.Set(value); }
+  public string? StringProperty { get => Get("Initial Value"); set => Set(value); }
 
   public int IntProperty
   {
-    get => _BackingFields.Get(0);
+    get => Get(0);
     set
     {
       if (value < 0) NullStringProperty = null;
-      _BackingFields.Set(value);
+      Set(value);
     }
   }
 
-  public Color BackgroundColor { get => _BackingFields.Get(Color.Blue); set => _BackingFields.Set(value); }
+  public Color BackgroundColor { get => Get(Color.Blue); set => Set(value); }
 }

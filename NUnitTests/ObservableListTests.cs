@@ -46,7 +46,7 @@ public class ObservableListTests
 
     // Assert
     Assert.That(eventTriggered, Is.True);
-    Assert.That(list, Does.Not.Contains(item));
+    Assert.That(list, Does.Not.Contain(item));
   }
 
   [Test]
