@@ -12,7 +12,7 @@ public class BackingFields
   /// <summary>
   /// Called when a value within <see cref="BackingFields"/> changes
   /// </summary>
-  public Action<string, object?> OnFieldChanged = (_, __) => { };
+  public event Action<string, object?> OnFieldChanged = (_, __) => { };
 
   /// <summary>
   /// Represents property names and values

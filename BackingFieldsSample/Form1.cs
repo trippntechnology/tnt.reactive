@@ -7,7 +7,7 @@ public partial class Form1 : Form
     InitializeComponent();
 
     var classWithBackingFields = new ClassWithBackingFields();
-    classWithBackingFields.OnFieldChanged = (propertyName, value) =>
+    classWithBackingFields.OnFieldChanged += (propertyName, value) =>
     {
       textBox1.AppendText($"Property {propertyName} changed to {value}{Environment.NewLine}");
       textBox1.BackColor = classWithBackingFields.BackgroundColor;

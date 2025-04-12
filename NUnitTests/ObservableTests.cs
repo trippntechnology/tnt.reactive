@@ -23,7 +23,7 @@ public class ObservableTests
     string? changedPropertyName = null;
     object? changedValue = null;
 
-    observable.OnFieldChanged = (propertyName, value) =>
+    observable.OnPropertyChanged += (propertyName, value) =>
     {
       changedPropertyName = propertyName;
       changedValue = value;
@@ -45,7 +45,7 @@ public class ObservableTests
     string? changedPropertyName = null;
     object? changedValue = null;
 
-    observable.OnFieldChanged = (propertyName, value) =>
+    observable.OnPropertyChanged += (propertyName, value) =>
     {
       changedPropertyName = propertyName;
       changedValue = value;

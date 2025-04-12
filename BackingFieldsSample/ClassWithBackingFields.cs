@@ -8,7 +8,7 @@ internal class ClassWithBackingFields
   private BackingFields _BackingFields = new BackingFields();
 
   [Browsable(false)]
-  public Action<string, object?> OnFieldChanged { get => _BackingFields.OnFieldChanged; set => _BackingFields.OnFieldChanged = value; }
+  public event Action<string, object?> OnFieldChanged = (_, __) => { };
 
   public string? NullStringProperty { get => _BackingFields.Get<string?>(null); set => _BackingFields.Set(value); }
 

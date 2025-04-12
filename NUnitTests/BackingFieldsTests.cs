@@ -32,7 +32,7 @@ public class BackingFieldsTests
     string? changedProperty = null;
     object? changedValue = null;
 
-    backingFields.OnFieldChanged = (propertyName, value) =>
+    backingFields.OnFieldChanged += (propertyName, value) =>
     {
       changedProperty = propertyName;
       changedValue = value;
@@ -95,8 +95,7 @@ public class BackingFieldsTests
 
     public Action<string, object?> OnFieldChanged
     {
-      get => _backingFields.OnFieldChanged;
-      set => _backingFields.OnFieldChanged = value;
+      set => _backingFields.OnFieldChanged += value;
     }
 
     public string StringProperty

@@ -16,7 +16,7 @@ public abstract class Observable
   /// <summary>
   /// An action invoked whenever a field value changes. The action provides the property name and its new value.
   /// </summary>
-  public Action<string, object?> OnFieldChanged = (propertyName, value) => { };
+  public event Action<string, object?> OnPropertyChanged = (propertyName, value) => { };
 
   /// <summary>
   /// Sets the value of a property and triggers the change notification if the value changes.
@@ -40,6 +40,6 @@ public abstract class Observable
   /// </summary>
   public Observable()
   {
-    _BackingFields.OnFieldChanged = (propertyName, value) => { OnFieldChanged(propertyName, value); };
+    _BackingFields.OnFieldChanged += (propertyName, value) => { OnPropertyChanged(propertyName, value); };
   }
 }
