@@ -8,8 +8,7 @@ public class ObservableListTests
 {
   private class TestObservable : Observable
   {
-    private string _property;
-    public string Property { get => Get<string>(); set => Set(value); }
+    public string? Property { get => Get<string?>(); set => Set(value); }
   }
 
   [Test]
