@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Debug_Nuget_Local" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="BackingFieldsSample/BackingFieldsSample.csproj">
+    <BuildType Solution="Debug_Nuget_Local|*" Project="Debug" />
+  </Project>
+  <Project Path="NUnitTests/NUnitTests.csproj" />
+  <Project Path="tnt.reactive/TNT.Reactive.csproj" />
+</Solution>
